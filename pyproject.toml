@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentlib"
+version = "0.1.0"
+description = "Building blocks for small coding agents."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx",
+    "python-dotenv",
+    "typing-extensions",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+agentlib-loop = "agentlib.coding.agent:main"
+
+[tool.setuptools.packages.find]
+include = ["agentlib*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
